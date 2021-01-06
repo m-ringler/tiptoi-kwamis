@@ -1,0 +1,248 @@
+﻿product-id: 700
+comment: Miraculous Ladybug Kwamis
+welcome: 1start, m_otoene, anleitung
+
+media-path: "Audio/%s"
+
+# Modi:
+#  0: O-Töne
+#  1: Namen
+#  2: Raten
+init: $slot:=0 $mode:=0 $kwami:=0 $rnd:=0 $angetippt:=0 $sag:=0
+
+gme-lang: GERMAN
+
+# Sprache für speak
+language: en
+
+scripts:
+  stop:
+  - J(sub_stop)
+  moduswechseln:
+  - $mode==0? $mode+=1 P(m_namen)
+  - $mode==1? $mode+=1 P(m_raten) $kwami_index:=0 J(sub_naechster_kwami)
+  - $mode:=0 $slot:=0 P(m_otoene)
+  daizzi:
+  - $mode!=0? $angetippt:=0 J(sub_angetippt)
+  - $angetippt != 0? $angetippt:=0 $slot:=0 J(daizzi)
+  - $slot==1? $slot+=1 P(daizzi_1)
+  - $slot:=1 P(daizzi_0)
+  duusu:
+  - $mode!=0? $angetippt:=1 J(sub_angetippt)
+  - $angetippt != 1? $angetippt:=1 $slot:=0 J(duusu)
+  - $slot==1? $slot+=1 P(duusu_1)
+  - $slot:=1 P(duusu_0)
+  fluff:
+  - $mode!=0? $angetippt:=2 J(sub_angetippt)
+  - $angetippt != 2? $angetippt:=2 $slot:=0 J(fluff)
+  - $slot==1? $slot+=1 P(fluff_1)
+  - $slot==2? $slot+=1 P(fluff_2)
+  - $slot==3? $slot+=1 P(fluff_3)
+  - $slot:=1 P(fluff_0)
+  kaalki:
+  - $mode!=0? $angetippt:=3 J(sub_angetippt)
+  - $angetippt != 3? $angetippt:=3 $slot:=0 J(kaalki)
+  - $slot==1? $slot+=1 P(kaalki_1)
+  - $slot==2? $slot+=1 P(kaalki_2)
+  - $slot:=1 P(kaalki_0)
+  longg:
+  - $mode!=0? $angetippt:=4 J(sub_angetippt)
+  - $angetippt != 4? $angetippt:=4 $slot:=0 J(longg)
+  - $slot==1? $slot+=1 P(longg_1)
+  - $slot==2? $slot+=1 P(longg_2)
+  - $slot:=1 P(longg_0)
+  nooroo:
+  - $mode!=0? $angetippt:=5 J(sub_angetippt)
+  - $angetippt != 5? $angetippt:=5 $slot:=0 J(nooroo)
+  - $slot==1? $slot+=1 P(nooroo_1)
+  - $slot:=1 P(nooroo_0)
+  orikko:
+  - $angetippt:=6 J(sub_angetippt)
+  plagg:
+  - $mode!=0? $angetippt:=7 J(sub_angetippt)
+  - $angetippt != 7? $angetippt:=7 $slot:=0 J(plagg)
+  - $slot==1? $slot+=1 P(plagg_1)
+  - $slot==2? $slot+=1 P(plagg_2)
+  - $slot==3? $slot+=1 P(plagg_3)
+  - $slot==4? $slot+=1 P(plagg_4)
+  - $slot==5? $slot+=1 P(plagg_5)
+  - $slot:=1 P(plagg_0)
+  pollen:
+  - $mode!=0? $angetippt:=8 J(sub_angetippt)
+  - $angetippt != 8? $angetippt:=8 $slot:=0 J(pollen)
+  - $slot==1? $slot+=1 P(pollen_1)
+  - $slot:=1 P(pollen_0)
+  roaar:
+  - $mode!=0? $angetippt:=9 J(sub_angetippt)
+  - $angetippt != 9? $angetippt:=9 $slot:=0 J(roaar)
+  - $slot:=1 P(roaar_0)
+  sass:
+  - $mode!=0? $angetippt:=10 J(sub_angetippt)
+  - $angetippt != 10? $angetippt:=10 $slot:=0 J(sass)
+  - $slot==1? $slot+=1 P(sass_1)
+  - $slot:=1 P(sass_0)
+  stompp:
+  - $mode!=0? $angetippt:=11 J(sub_angetippt)
+  - $angetippt != 11? $angetippt:=11 $slot:=0 J(stompp)
+  - $slot==1? $slot+=1 P(stompp_1)
+  - $slot:=1 P(stompp_0)
+  tikki:
+  - $mode!=0? $angetippt:=12 J(sub_angetippt)
+  - $angetippt != 12? $angetippt:=12 $slot:=0 J(tikki)
+  - $slot==1? $slot+=1 P(tikki_1)
+  - $slot:=1 P(tikki_0)
+  trixx:
+  - $mode!=0? $angetippt:=13 J(sub_angetippt)
+  - $angetippt != 13? $angetippt:=13 $slot:=0 J(trixx)
+  - $slot==1? $slot+=1 P(trixx_1)
+  - $slot==2? $slot+=1 P(trixx_2)
+  - $slot==3? $slot+=1 P(trixx_3)
+  - $slot:=1 P(trixx_0)
+  wayzz:
+  - $mode!=0? $angetippt:=14 J(sub_angetippt)
+  - $angetippt != 14? $angetippt:=14 $slot:=0 J(wayzz)
+  - $slot==1? $slot+=1 P(wayzz_1)
+  - $slot:=1 P(wayzz_0)
+  xuppu:
+  - $mode!=0? $angetippt:=15 J(sub_angetippt)
+  - $angetippt != 15? $angetippt:=15 $slot:=0 J(xuppu)
+  - $slot:=1 P(xuppu_0)
+  ziggy:
+  - $mode!=0? $angetippt:=16 J(sub_angetippt)
+  - $angetippt != 16? $angetippt:=16 $slot:=0 J(ziggy)
+  - $slot==1? $slot+=1 P(ziggy_1)
+  - $slot:=1 P(ziggy_0)
+  sub_naechster_kwami:
+   - $kwami_length==0? J(sub_init_kwami_liste_0)
+   - T($r, 65535) $rnd+=$r $rnd*=25173 $rnd+=13849 $kwami_index:=$rnd $kwami_index%=$kwami_length $kwami_length-=1 $i:=0 J(sub_naechster_kwami_1)
+  sub_naechster_kwami_1:
+    - $i == 00? $kwami:=$kwami_00 J(sub_naechster_kwami_2)
+    - $i == 01? $kwami:=$kwami_01 J(sub_naechster_kwami_2)
+    - $i == 02? $kwami:=$kwami_02 J(sub_naechster_kwami_2)
+    - $i == 03? $kwami:=$kwami_03 J(sub_naechster_kwami_2)
+    - $i == 04? $kwami:=$kwami_04 J(sub_naechster_kwami_2)
+    - $i == 05? $kwami:=$kwami_05 J(sub_naechster_kwami_2)
+    - $i == 06? $kwami:=$kwami_06 J(sub_naechster_kwami_2)
+    - $i == 07? $kwami:=$kwami_07 J(sub_naechster_kwami_2)
+    - $i == 08? $kwami:=$kwami_08 J(sub_naechster_kwami_2)
+    - $i == 09? $kwami:=$kwami_09 J(sub_naechster_kwami_2)
+    - $i == 10? $kwami:=$kwami_10 J(sub_naechster_kwami_2)
+    - $i == 11? $kwami:=$kwami_11 J(sub_naechster_kwami_2)
+    - $i == 12? $kwami:=$kwami_12 J(sub_naechster_kwami_2)
+    - $i == 13? $kwami:=$kwami_13 J(sub_naechster_kwami_2)
+    - $i == 14? $kwami:=$kwami_14 J(sub_naechster_kwami_2)
+    - $i == 15? $kwami:=$kwami_15 J(sub_naechster_kwami_2)
+    - $i == 16? $kwami:=$kwami_16 J(sub_naechster_kwami_2)
+  sub_naechster_kwami_2:
+    - $kwami == 100? $kwami_index+=1 $i+=1 J(sub_naechster_kwami_1)
+    - $i == $kwami_index? J(sub_naechster_kwami_3)
+    - $i+=1 J(sub_naechster_kwami_1)
+  sub_naechster_kwami_3:
+    - $i == 00? $kwami_00:=100 J(sub_frag_kwami)
+    - $i == 01? $kwami_01:=100 J(sub_frag_kwami)
+    - $i == 02? $kwami_02:=100 J(sub_frag_kwami)
+    - $i == 03? $kwami_03:=100 J(sub_frag_kwami)
+    - $i == 04? $kwami_04:=100 J(sub_frag_kwami)
+    - $i == 05? $kwami_05:=100 J(sub_frag_kwami)
+    - $i == 06? $kwami_06:=100 J(sub_frag_kwami)
+    - $i == 07? $kwami_07:=100 J(sub_frag_kwami)
+    - $i == 08? $kwami_08:=100 J(sub_frag_kwami)
+    - $i == 09? $kwami_09:=100 J(sub_frag_kwami)
+    - $i == 10? $kwami_10:=100 J(sub_frag_kwami)
+    - $i == 11? $kwami_11:=100 J(sub_frag_kwami)
+    - $i == 12? $kwami_12:=100 J(sub_frag_kwami)
+    - $i == 13? $kwami_13:=100 J(sub_frag_kwami)
+    - $i == 14? $kwami_14:=100 J(sub_frag_kwami)
+    - $i == 15? $kwami_15:=100 J(sub_frag_kwami)
+    - $i == 16? $kwami_16:=100 J(sub_frag_kwami)
+  sub_init_kwami_liste_0:
+    - $kwami_00:=0 $kwami_01:=1 $kwami_02:=2 $kwami_03:=3 $kwami_04:=4 $kwami_05:=5 J(sub_init_kwami_liste_1)
+  sub_init_kwami_liste_1:
+    - $kwami_06:=6 $kwami_07:=7 $kwami_08:=8 $kwami_09:=9 $kwami_10:=10 $kwami_11:=11 J(sub_init_kwami_liste_2)
+  sub_init_kwami_liste_2:
+    - $kwami_12:=12 $kwami_13:=13 $kwami_14:=14 $kwami_15:=15 $kwami_16:=16 J(sub_init_kwami_liste_3)
+  sub_init_kwami_liste_3:
+    - $kwami_length:=17 J(sub_naechster_kwami)
+  sub_frag_kwami:
+  - $sag:=$kwami P(wo_ist) J(sub_sag_stop)
+  sub_sag_weiter:
+  - $sag==0? P(s_daizzi) J(sub_angetippt_1)
+  - $sag==1? P(s_duusu) J(sub_angetippt_1)
+  - $sag==2? P(s_fluff) J(sub_angetippt_1)
+  - $sag==3? P(s_kaalki) J(sub_angetippt_1)
+  - $sag==4? P(s_longg) J(sub_angetippt_1)
+  - $sag==5? P(s_nooroo) J(sub_angetippt_1)
+  - $sag==6? P(s_orikko) J(sub_angetippt_1)
+  - $sag==7? P(s_plagg) J(sub_angetippt_1)
+  - $sag==8? P(s_pollen) J(sub_angetippt_1)
+  - $sag==9? P(s_roaar) J(sub_angetippt_1)
+  - $sag==10? P(s_sass) J(sub_angetippt_1)
+  - $sag==11? P(s_stompp) J(sub_angetippt_1)
+  - $sag==12? P(s_tikki) J(sub_angetippt_1)
+  - $sag==13? P(s_trixx) J(sub_angetippt_1)
+  - $sag==14? P(s_wayzz) J(sub_angetippt_1)
+  - $sag==15? P(s_xuppu) J(sub_angetippt_1)
+  - $sag==16? P(s_ziggy) J(sub_angetippt_1)
+  sub_sag_stop:
+  - $sag==0? P(s_daizzi)
+  - $sag==1? P(s_duusu)
+  - $sag==2? P(s_fluff)
+  - $sag==3? P(s_kaalki)
+  - $sag==4? P(s_longg)
+  - $sag==5? P(s_nooroo)
+  - $sag==6? P(s_orikko)
+  - $sag==7? P(s_plagg)
+  - $sag==8? P(s_pollen)
+  - $sag==9? P(s_roaar)
+  - $sag==10? P(s_sass)
+  - $sag==11? P(s_stompp)
+  - $sag==12? P(s_tikki)
+  - $sag==13? P(s_trixx)
+  - $sag==14? P(s_wayzz)
+  - $sag==15? P(s_xuppu)
+  - $sag==16? P(s_ziggy)
+  sub_angetippt:
+  - $mode==0? P(uups)
+  - $mode==1? $sag:=$angetippt J(sub_sag_stop)
+  - $angetippt==$kwami? P(richtig) J(sub_naechster_kwami)
+  - P(falsch) $sag:=$angetippt J(sub_sag_weiter)
+  sub_angetippt_1:
+  - P(ist_nicht) $sag:=$kwami J(sub_sag_stop)
+  sub_stop:
+    P(nichts)
+
+scriptcodes:
+  moduswechseln: 2000
+  daizzi: 9091
+  duusu: 9087
+  fluff: 9086
+  kaalki: 9073
+  longg: 9092
+  nooroo: 9079
+  orikko: 9070
+  plagg: 9069
+  pollen: 9072
+  roaar: 9101
+  sass: 9088
+  stompp: 9090
+  tikki: 9071
+  trixx: 9077
+  wayzz: 9093
+  xuppu: 9080
+  ziggy: 9083
+  stop: 10000
+  # codes below are internal and not used in the printed product
+  sub_angetippt: 20000
+  sub_angetippt_1: 20001
+  sub_sag_stop: 20010
+  sub_sag_weiter: 20011
+  sub_stop: 10001
+  sub_naechster_kwami: 11000
+  sub_naechster_kwami_1: 11001
+  sub_naechster_kwami_2: 11002
+  sub_naechster_kwami_3: 11003
+  sub_frag_kwami: 11004
+  sub_init_kwami_liste_0: 11010
+  sub_init_kwami_liste_1: 11011
+  sub_init_kwami_liste_2: 11012
+  sub_init_kwami_liste_3: 11013
