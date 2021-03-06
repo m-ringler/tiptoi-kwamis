@@ -1,6 +1,6 @@
 ﻿product-id: 700
 comment: Miraculous Ladybug Kwamis
-welcome: 1start, m_otoene, anleitung
+welcome: 1start #, m_otoene, anleitung
 
 media-path: "Audio/%s"
 
@@ -55,6 +55,7 @@ scripts:
   - $mode!=0? $angetippt:=5 J(sub_angetippt)
   - $angetippt != 5? $angetippt:=5 $slot:=0 J(nooroo)
   - $slot==1? $slot+=1 P(nooroo_1)
+  - $slot==2? $slot+=1 P(nooroo_2)
   - $slot:=1 P(nooroo_0)
   orikko:
   - $angetippt:=6 J(sub_angetippt)
@@ -66,6 +67,9 @@ scripts:
   - $slot==3? $slot+=1 P(plagg_3)
   - $slot==4? $slot+=1 P(plagg_4)
   - $slot==5? $slot+=1 P(plagg_5)
+  - $slot==6? $slot+=1 P(plagg_6)
+  - $slot==7? $slot+=1 P(plagg_7)
+  - $slot==8? $slot+=1 P(plagg_8)
   - $slot:=1 P(plagg_0)
   pollen:
   - $mode!=0? $angetippt:=8 J(sub_angetippt)
@@ -90,6 +94,7 @@ scripts:
   - $mode!=0? $angetippt:=12 J(sub_angetippt)
   - $angetippt != 12? $angetippt:=12 $slot:=0 J(tikki)
   - $slot==1? $slot+=1 P(tikki_1)
+  - $slot==2? $slot+=1 P(tikki_2)
   - $slot:=1 P(tikki_0)
   trixx:
   - $mode!=0? $angetippt:=13 J(sub_angetippt)
@@ -114,7 +119,9 @@ scripts:
   - $slot:=1 P(ziggy_0)
   sub_naechster_kwami:
    - $kwami_length==0? J(sub_init_kwami_liste_0)
-   - T($r, 65535) $rnd+=$r $rnd*=25173 $rnd+=13849 $kwami_index:=$rnd $kwami_index%=$kwami_length $kwami_length-=1 $i:=0 J(sub_naechster_kwami_1)
+   - T($r, 65535) $rnd+=$r $rnd*=25173 $rnd+=13849 $kwami_index:=$rnd J(sub_naechster_kwami_0)
+  sub_naechster_kwami_0:
+  - $kwami_index%=$kwami_length $kwami_length-=1 $i:=0 J(sub_naechster_kwami_1)
   sub_naechster_kwami_1:
     - $i == 00? $kwami:=$kwami_00 J(sub_naechster_kwami_2)
     - $i == 01? $kwami:=$kwami_01 J(sub_naechster_kwami_2)
@@ -238,10 +245,11 @@ scriptcodes:
   sub_sag_weiter: 20011
   sub_stop: 10001
   sub_naechster_kwami: 11000
-  sub_naechster_kwami_1: 11001
-  sub_naechster_kwami_2: 11002
-  sub_naechster_kwami_3: 11003
-  sub_frag_kwami: 11004
+  sub_naechster_kwami_0: 11001
+  sub_naechster_kwami_1: 11002
+  sub_naechster_kwami_2: 11003
+  sub_naechster_kwami_3: 11004
+  sub_frag_kwami: 11005
   sub_init_kwami_liste_0: 11010
   sub_init_kwami_liste_1: 11011
   sub_init_kwami_liste_2: 11012
