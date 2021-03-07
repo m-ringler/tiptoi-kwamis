@@ -117,6 +117,12 @@ scripts:
   - $angetippt != 16? $angetippt:=16 $slot:=0 J(ziggy)
   - $slot==1? $slot+=1 P(ziggy_1)
   - $slot:=1 P(ziggy_0)
+  barkk:
+  - $mode!=0? $angetippt:=17 J(sub_angetippt)
+  - $angetippt != 17? $angetippt:=17 $slot:=0 J(barkk)
+  - $slot:=1 P(barkk_0)
+  mullo:
+  - $angetippt:=18 J(sub_angetippt)
   sub_naechster_kwami:
    - $kwami_length==0? J(sub_init_kwami_liste)
    - T($r, 65535) $rnd+=$r $rnd*=25173 $rnd+=13849 $kwami_index:=$rnd J(sub_naechster_kwami_0)
@@ -140,6 +146,8 @@ scripts:
     - $i == 14? $kwami:=$kwami_14 J(sub_naechster_kwami_2)
     - $i == 15? $kwami:=$kwami_15 J(sub_naechster_kwami_2)
     - $i == 16? $kwami:=$kwami_16 J(sub_naechster_kwami_2)
+    - $i == 17? $kwami:=$kwami_17 J(sub_naechster_kwami_2)
+    - $i == 18? $kwami:=$kwami_18 J(sub_naechster_kwami_2)
   sub_naechster_kwami_2:
     - $kwami == 100? $kwami_index+=1 $i+=1 J(sub_naechster_kwami_1)
     - $i == $kwami_index? J(sub_naechster_kwami_3)
@@ -162,12 +170,14 @@ scripts:
     - $i == 14? $kwami_14:=100 J(sub_frag_kwami)
     - $i == 15? $kwami_15:=100 J(sub_frag_kwami)
     - $i == 16? $kwami_16:=100 J(sub_frag_kwami)
+    - $i == 17? $kwami_17:=100 J(sub_frag_kwami)
+    - $i == 18? $kwami_18:=100 J(sub_frag_kwami)
   sub_init_kwami_liste:
     - $step == 0 ? $step += 1 $kwami_00:=0 $kwami_01:=1 $kwami_02:=2 $kwami_03:=3 $kwami_04:=4 J(sub_init_kwami_liste)
     - $step == 1 ? $step += 1 $kwami_05:=5 $kwami_06:=6 $kwami_07:=7 $kwami_08:=8 $kwami_09:=9 J(sub_init_kwami_liste)
     - $step == 2 ? $step += 1 $kwami_10:=10 $kwami_11:=11 $kwami_12:=12 $kwami_13:=13 $kwami_14:=14 J(sub_init_kwami_liste)
-    - $step == 3 ? $step += 1 $kwami_15:=15 $kwami_16:=16 J(sub_init_kwami_liste)
-    - $step == 4 ? $step += 1 $kwami_length:=17 J(sub_init_kwami_liste)
+    - $step == 3 ? $step += 1 $kwami_15:=15 $kwami_16:=16 $kwami_17:=17 $kwami_18:=18 J(sub_init_kwami_liste)
+    - $step == 4 ? $step += 1 $kwami_length:=19 J(sub_init_kwami_liste)
     - $step == 5 ? $step := 0 J(sub_naechster_kwami)
   sub_frag_kwami:
   - $sag:=$kwami P(wo_ist) J(sub_sag_stop)
@@ -193,6 +203,8 @@ scripts:
   - $sag==14? P(s_wayzz) J(sub_jump)
   - $sag==15? P(s_xuppu) J(sub_jump)
   - $sag==16? P(s_ziggy) J(sub_jump)
+  - $sag==17? P(s_barkk) J(sub_jump)
+  - $sag==18? P(s_mullo) J(sub_jump)
   sub_jump:
   - $jumpto == 1? J(sub_angetippt_1)
   sub_angetippt:
@@ -207,11 +219,13 @@ scripts:
 
 scriptcodes:
   moduswechseln: 2000
+  barkk: 9095
   daizzi: 9091
   duusu: 9087
   fluff: 9086
   kaalki: 9073
   longg: 9092
+  mullo: 9094
   nooroo: 9079
   orikko: 9070
   plagg: 9069
@@ -228,6 +242,7 @@ scriptcodes:
   # codes below are internal and not used in the printed product
   sub_angetippt: 20000
   sub_angetippt_1: 20001
+  sub_sag: 20009
   sub_sag_stop: 20010
   sub_sag_weiter: 20011
   sub_jump: 20012
